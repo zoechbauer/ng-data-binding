@@ -8,5 +8,11 @@ import { CockpitComponent } from './cockpit/cockpit.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  serverElements = [];
+  serverElements = [
+    {
+      type: 'server',
+      name: 'Testserver 1',
+      content: 'this is only a test'
+    }
+  ];
 }
