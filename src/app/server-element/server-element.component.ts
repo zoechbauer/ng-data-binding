@@ -10,7 +10,9 @@ import {
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
+  OnDestroy,
+  ViewChild,
+  ElementRef
 } from '@angular/core';
 
 @Component({
@@ -32,9 +34,11 @@ export class ServerElementComponent
   // tslint:disable-next-line: no-input-rename
   @Input('svrElement') element: { type: string; name: string; content: string };
   @Input() name: string;
+  @ViewChild('heading', { static: true }) header: ElementRef;
 
   constructor() {
     console.log('constructor called');
+    // console.log('Text Content: ' + this.header.nativeElement.textContent);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -60,6 +64,9 @@ export class ServerElementComponent
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit called');
+    console.log('textContent: ' + this.header.nativeElement.textContent);
+    console.log('innerHtml ' + this.header.nativeElement.innerHTML);
+    console.log('native Element: ' + this.header.nativeElement);
   }
 
   ngAfterViewChecked() {
